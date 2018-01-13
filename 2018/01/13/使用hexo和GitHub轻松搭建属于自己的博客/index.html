@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="author" content="LY">
+    
+    <meta name="description" content="start from zero">
+    
+    
+    
+    
+    
+    
+    <title>使用hexo和GitHub轻松搭建自己的博客 | LMY</title>
+    <link href=”http://liyanyan1996.cn“ rel=”prefetch” />
+
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+<link rel="stylesheet" href="/css/aos.css">
+<link rel="stylesheet" href="/css/style.css">
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/aos.js"></script>
+    <script src="/js/highslide/highslide-full.min.js"></script>
+    <link rel="stylesheet" href="/js/highslide/highslide.css">
+    <style type="text/css">
+        @media (max-width: 768px) {
+            body {
+                background-color: #f0f0f0;
+                background: url('/imgs/xsbg.gif');
+                background-attachment: fixed;
+            }
+        }
+    </style>
+    
+    <!--<script type="text/javascript">
+      if (document.images) {
+        var avatar = new Image();
+        avatar.src = '/imgs/img1.jpeg'
+        var previews = '1010.jpg,1012.png,1013.jpg,1011.jpg'.split(',')
+        var previewsPreLoad = []
+        for(var i = 0; i < length; i++) {
+          previewsPreLoad.push(new Image())
+          previewsPreLoad[previewsPreLoad.length - 1].src = '/imgs/preview' + previews[i]
+        }
+      }
+    </script>-->
+</head>
+<body>
+    <!-- 背景轮播图功能 -->
+    <section class="hidden-xs">
+    <ul class="cb-slideshow">
+        <li><span>天若</span></li>
+        <li><span>有情</span></li>
+        <li><span>天亦老</span></li>
+        <li><span>我为</span></li>
+        <li><span>长者</span></li>
+        <li><span>续一秒</span></li>
+    </ul>
+</section>
+    <!-- 欧尼酱功能, 谁用谁知道 -->
+    
+    <div class="gal-menu gal-dropdown">
+    <div class="circle" id="gal">
+        <div class="ring">
+            <a href="http://liyanyan1996.cn" class="menuItem" style="left: 50%; top: 15%;">首页</a>
+            
+            <a class="menuItem" style="left: 80.3109%; top: 32.5%;">下一页</a>
+            
+            <a href="/archives" class="menuItem" style="left: 80.3109%; top: 67.5%;">归档</a>
+            <a href="/about" class="menuItem" style="left: 50%; top: 85%;">关于</a>
+            <a href="/message" class="menuItem" style="left: 19.6891%; top: 67.5%;">留言板</a>
+            
+            <a class="menuItem" style="left: 19.6891%; top: 32.5%;">上一页</a>
+            
+        </div>
+        <audio id="audio" src="/imgs/oni.mp3"></audio>
+    </div>
+</div>
+    
+    <header class="navbar navbar-inverse" id="gal-header">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed"
+                    data-toggle="collapse" data-target=".bs-navbar-collapse"
+                    aria-expanded="false">
+                <span class="fa fa-lg fa-reorder"></span>
+            </button>
+            <a href="http://liyanyan1996.cn">
+                
+                <style>
+                    #gal-header .navbar-brand {
+                        height: 54px;
+                        line-height: 24px;
+                        font-size: 28px;
+                        opacity: 1;
+                        background-color: rgba(0,0,0,0);
+                        text-shadow: 0 0 5px #fff,0 0 10px #fff,0 0 15px #fff,0 0 20px #228DFF,0 0 35px #228DFF,0 0 40px #228DFF,0 0 50px #228DFF,0 0 75px #228DFF;
+                    }
+                </style>
+                <!-- 这里使用文字(navbar_text or config.title) -->
+                <div class="navbar-brand">LMY</div>
+                
+            </a>
+        </div>
+        <div class="collapse navbar-collapse bs-navbar-collapse">
+            <ul class="nav navbar-nav" id="menu-gal">
+                
+                
+                <li class="">
+                    <a href="/">
+                        <i class="fa fa-home"></i>首页
+                    </a>
+                </li>
+                
+                
+                
+                <li class="">
+                    <a href="/archives">
+                        <i class="fa fa-archive"></i>归档
+                    </a>
+                </li>
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-list"></i>分类
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="/categories/hexo/">hexo</a>
+                        </li>
+                        
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-tags"></i>标签
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="/tags/first/">first</a>
+                        </li>
+                        
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                <li class="">
+                    <a href="/about">
+                        <i class="fa fa-user"></i>关于我
+                    </a>
+                </li>
+                
+                
+            </ul>
+        </div>
+    </div>
+</header>
+    <div id="gal-body">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 gal-right" id="mainstay">
+                    
+<article class="article well article-body" id="article">
+    <div class="breadcrumb">
+        <i class="fa fa-home"></i>
+        <a href="http://liyanyan1996.cn">LMY</a>
+        >
+        <span>使用hexo和GitHub轻松搭建自己的博客</span>
+    </div>
+    <!-- 大型设备详细文章 -->
+    <div class="hidden-xs">
+        <div class="title-article">
+            <h1>
+                <a href="/2018/01/13/使用hexo和GitHub轻松搭建属于自己的博客/">使用hexo和GitHub轻松搭建自己的博客</a>
+            </h1>
+        </div>
+        <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/first/">first</a>
+                
+            </span>
+            
+            <span class="label label-gal">
+                <i class="fa fa-calendar"></i> 2018-01-13
+            </span>
+            
+        </div>
+    </div>
+    <!-- 小型设备详细文章 -->
+    <div class="visible-xs">
+        <center>
+            <div class="title-article">
+                <h4>
+                    <a href="/2018/01/13/使用hexo和GitHub轻松搭建属于自己的博客/">使用hexo和GitHub轻松搭建自己的博客</a>
+                </h4>
+            </div>
+            <p>
+                <i class="fa fa-calendar"></i> 2018-01-13
+            </p>
+            <p>
+                
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/first/">first</a>
+                
+                
+                
+            </p>
+        </center>
+    </div>
+    <div class="content-article">
+        <p>#<font color="black">使用hexo和GitHub轻松搭建属于自己的博客</font></p>
+<h2 id="关于搭建博客的那点事："><a href="#关于搭建博客的那点事：" class="headerlink" title="关于搭建博客的那点事："></a>关于搭建博客的那点事：</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;从来都没想过搭建一个自己的博客，在学前端之前甚至连博客是什么都不知道。但是随着学习的深入，接触的东西也越来越多，慢慢发现对于自己学习的检验不只要体现在每天敲代码上，也该有一个类似于笔记的东西来整理自己的心得，所以上网左翻右翻，最后发现写一个博客是个不错的方法（因为只有自己能看到的笔记过后再读常常会发现自己以前写的很草率😕 ）。为了鞭策自己最近下决心来打搭一个自己的博客。</p>
+<h3 id="那么问题来了，为什么要搭一个自己的博客呢？"><a href="#那么问题来了，为什么要搭一个自己的博客呢？" class="headerlink" title="那么问题来了，为什么要搭一个自己的博客呢？"></a>那么问题来了，为什么要搭一个自己的博客呢？</h3><blockquote>
+<p><font color="#a6t54a" size="5">当然是自主权比较高啦</font>如果我们在一些博客平台上建一个自己的博客的话，虽然很方便，省去了自己找资源，自己搭建的过程，但是同样的，我们的博客会受到这些博客平台这样或那样的限制，比如说可能会限制插件的代码使用啦，广告的插入啦，而且对于你的博客内容也会有各种各样的限制（比如说涉及到政治上，黄赌毒。。。之类的内容。😝 当然，自建博客最好也别和这些沾边。）😝 好啦，不多说了，了解了建博客的好处之后我们就可以开始着手搭建了，接下来就是搭建博客应该做的准备工作了。</p>
+</blockquote>
+<h2 id="准备工作开始"><a href="#准备工作开始" class="headerlink" title="准备工作开始"></a><font color="hotpink">准备工作开始</font></h2><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ps：因为本人现在使用的是苹果机，所以这篇博客将会以 <em><strong>Mac</strong></em> 来作为参考，但是我也在网上看了些有关针对于windows来搭建博客的方法，与mac搭建方法差不多，由于我没有windows的电脑，没有办法看到图片，所以用windows的小伙伴只能自己上网找找了。  </p>
+<h3 id="1-首先，我们要注册一个Github账号-点击这里：https-github-com-可以进入GitHub官网开始注册。"><a href="#1-首先，我们要注册一个Github账号-点击这里：https-github-com-可以进入GitHub官网开始注册。" class="headerlink" title="1.首先，我们要注册一个Github账号,点击这里：https://github.com/ 可以进入GitHub官网开始注册。"></a>1.首先，我们要<strong><strong>注册一个Github</strong></strong>账号,点击这里：<font color="red"><a href="https://github.com/" target="_blank" rel="noopener">https://github.com/</a></font> 可以进入GitHub官网开始注册。</h3><h3 id="2-当我们注册完成后，就可以开始建库了。"><a href="#2-当我们注册完成后，就可以开始建库了。" class="headerlink" title="2.当我们注册完成后，就可以开始建库了。"></a>2.当我们注册完成后，就可以开始建库了。</h3><p>  如下图所示：<br><img src="http://m.qpic.cn/psb?/V13ayM3u3ZPN09/vZs*oa.Rz0RFEKNbpfqjHwSTwcNmCUeiQGLPjtY8JwE!/b/dF4BAAAAAAAA&amp;bo=iwLaAAAAAAADB3E!&amp;rf=viewer_4" alt=""></p>
+<p>  找到 Start a project ,点击建库：<br><img src="http://m.qpic.cn/psb?/V13ayM3u3ZPN09/8pN7ZlnFdQJFvXJ8IQEZCrNrwHPJwicKC6xEAzkQp48!/b/dPMAAAAAAAAA&amp;bo=8AJ0AgAAAAADF7Y!&amp;rf=viewer_4" alt=""></p>
+<h3 id="在创建仓库名字的时候一定要输入："><a href="#在创建仓库名字的时候一定要输入：" class="headerlink" title="在创建仓库名字的时候一定要输入："></a><font color="red">在创建仓库名字的时候一定要输入：</font></h3><blockquote>
+<p>你自己的:Github昵称.github.io  </p>
+</blockquote>
+<p>然后点击Create repository创建就可以了。</p>
+<h3 id="3-生成秘钥"><a href="#3-生成秘钥" class="headerlink" title="3.生成秘钥"></a>3.生成秘钥</h3><p>在终端输入：  </p>
+<blockquote>
+<p>ssh-keygen -t rsa -C “Github的注册邮箱地址”  </p>
+</blockquote>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;这时会出现很多东西，但是你只需要一直Enter就好，等到秘钥生成完毕你会得到<strong>id_rsa</strong>和 <strong>id_rsa.pub</strong> 这两个文件。<br>你需要找到放置这两个文件的地方，然后用记事本打开 <strong>id_rsa.pub</strong>,复制里面所有的内容，然后点击进入<font color="red"><a href="https://github.com/settings/ssh/new" target="_blank" rel="noopener">https://github.com/settings/ssh/new</a></font>：  </p>
+<p>如下图所示：</p>
+<p><img src="http://m.qpic.cn/psb?/V13ayM3u3ZPN09/3UUVVMAkLVEvj*yZCI8XISBhE6dn55Dhl1tgBNRgY*I!/b/dPMAAAAAAAAA&amp;bo=FAOsAQAAAAADF4g!&amp;rf=viewer_4" alt=""></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;随便写一个Title的题目，然后把刚刚复制的内容粘贴到Key中，点击 Add SSH key 创建秘钥。</p>
+<blockquote>
+<p>ps：<strong>id_rsa</strong>是私钥，<strong>id_rsa.pub</strong>是公钥。</p>
+</blockquote>
+<h3 id="4-安装node-js"><a href="#4-安装node-js" class="headerlink" title="4.安装node.js"></a>4.安装node.js</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关于如何安装nodejs在这里我就不多说了，如果大家的电脑里没有可以到node.js官网上下载。<br><img src="http://m.qpic.cn/psb?/V13ayM3u3ZPN09/HFRmnh*22h7DTtfRBgj8QebxPUDMoHs8wzVcayO5ojs!/b/dPIAAAAAAAAA&amp;bo=BwP2AQAAAAADF8E!&amp;rf=viewer_4" alt=""></p>
+<h3 id="5-安装git"><a href="#5-安装git" class="headerlink" title="5.安装git"></a>5.安装git</h3><p>对于git的安装也很简单，如果没有git的可自行网上查阅  </p>
+<h2 id="进入正题"><a href="#进入正题" class="headerlink" title="进入正题"></a><font color="hotpink">进入正题</font></h2><p>准备工作做好后，我们开始准备安装配置hexo了  </p>
+<h3 id="1-建一个文件夹，用来放置你的博客"><a href="#1-建一个文件夹，用来放置你的博客" class="headerlink" title="1.建一个文件夹，用来放置你的博客"></a>1.建一个文件夹，用来放置你的博客</h3><h3 id="2-在终端中：cd-文件夹"><a href="#2-在终端中：cd-文件夹" class="headerlink" title="2.在终端中：cd 文件夹"></a>2.在终端中：cd 文件夹</h3><p><img src="http://m.qpic.cn/psb?/V13ayM3u3ZPN09/xihprYUc3qMIhapddxeoqTMeIMowyY*nyLyyUcKXxPc!/b/dPMAAAAAAAAA&amp;bo=iwJZAAAAAAADF.I!&amp;rf=viewer_4" alt=""></p>
+<h3 id="3-下载安装hexo"><a href="#3-下载安装hexo" class="headerlink" title="3.下载安装hexo"></a>3.下载安装hexo</h3><pre><code>npm install -g hexo-cli
+</code></pre><h3 id="4-完成后输入："><a href="#4-完成后输入：" class="headerlink" title="4.完成后输入："></a>4.完成后输入：</h3><pre><code>hexo
+</code></pre><p><img src="http://s347.photo.store.qq.com/psb?/V13ayM3u3ZPN09/rhQA1rzKeUnt9s8gEIm0zYuHZ2QopZf8jNo8TDqIMLw!/b/dFsBAAAAAAAA&amp;bo=hgLJAQAAAAADF34!&amp;rf=viewer_4" alt=""><br>如上图所示：你已经安装hexo成功了  </p>
+<h3 id="5-建立一个文件夹，随便起名字，如-myHexo。初始化博客"><a href="#5-建立一个文件夹，随便起名字，如-myHexo。初始化博客" class="headerlink" title="5.建立一个文件夹，随便起名字，如:myHexo。初始化博客"></a>5.建立一个文件夹，随便起名字，如:myHexo。初始化博客</h3><pre><code>hexo init myHexo
+</code></pre><h3 id="6-进入文件夹"><a href="#6-进入文件夹" class="headerlink" title="6.进入文件夹"></a>6.进入文件夹</h3><pre><code>cd myHexo
+</code></pre><h3 id="7-安装依赖包"><a href="#7-安装依赖包" class="headerlink" title="7.安装依赖包"></a>7.安装依赖包</h3><pre><code>npm install
+</code></pre><h3 id="8-找到文件中的-config-yml文件，接下来我们将对他进行一些修改"><a href="#8-找到文件中的-config-yml文件，接下来我们将对他进行一些修改" class="headerlink" title="8.找到文件中的_config.yml文件，接下来我们将对他进行一些修改"></a>8.找到文件中的_config.yml文件，接下来我们将对他进行一些修改</h3><font color="red">注意：对于以下我们每一项的修改，在 : 的后面都一定要留一个空格，不然在接下来的执行中会报错,eg：<br>  title: inerdstack✅<br>  title:inerdstack ❎<br></font>    
+
+<ul>
+<li>打开文件，找到开头: Site  部分，修改为：  </li>
+</ul>
+<blockquote>
+<p>title: inerdstack<br>subtitle: the stack of it nerds<br>description: start from zero<br>author: inerdstack<br>language: zh-CN<br>timezone: Asia/Shanghai  </p>
+</blockquote>
+<ul>
+<li>找到 URL 部分，修改为：  </li>
+</ul>
+<blockquote>
+<p>url: <a href="http://自己的域名" target="_blank" rel="noopener">http://自己的域名</a></p>
+</blockquote>
+<ul>
+<li>找到最下方 Deployment 部分，修改为：  </li>
+</ul>
+<blockquote>
+<p>deploy:<br>  type: git<br>  repo: <a href="https://github.com/Xqqqqqq/Xqqqqqq.github.io.git" target="_blank" rel="noopener">https://github.com/Xqqqqqq/Xqqqqqq.github.io.git</a><br>  branch: master</p>
+</blockquote>
+<p>如下图所示：<br>（这里为什么要配张图呢，是因为小编实在没有排好版啊<del>~~(&gt;_&lt;)</del>~~）<br><img src="http://m.qpic.cn/psb?/V13ayM3u3ZPN09/W5bh51HoqNAY2sCDV5yuaPRCuOj5zAT8O8aB2Tgg7.g!/b/dPMAAAAAAAAA&amp;bo=cwJSAAAAAAADFxE!&amp;rf=viewer_4" alt=""> </p>
+<p>之后保存并关闭就好啦。  </p>
+<h2 id="接下来我们就可以测试一下试试啦"><a href="#接下来我们就可以测试一下试试啦" class="headerlink" title="接下来我们就可以测试一下试试啦"></a><font color="hotpink">接下来我们就可以测试一下试试啦</font></h2><h3 id="在终端输入："><a href="#在终端输入：" class="headerlink" title="在终端输入："></a>在终端输入：</h3><pre><code>hexo new &quot;文章标题&quot;
+</code></pre><h3 id="nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-这时我们第一篇文章的标题就建好了，我们可以在博客文件夹中的-post看到我们刚刚所建的文件标题，用markdown编辑器打开就可以开始编辑了。现在你可以随便写点内容，保存之后，我们一起来本地测试一下，在终端输入："><a href="#nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-这时我们第一篇文章的标题就建好了，我们可以在博客文件夹中的-post看到我们刚刚所建的文件标题，用markdown编辑器打开就可以开始编辑了。现在你可以随便写点内容，保存之后，我们一起来本地测试一下，在终端输入：" class="headerlink" title="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;这时我们第一篇文章的标题就建好了，我们可以在博客文件夹中的_post看到我们刚刚所建的文件标题，用markdown编辑器打开就可以开始编辑了。现在你可以随便写点内容，保存之后，我们一起来本地测试一下，在终端输入："></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;这时我们第一篇文章的标题就建好了，我们可以在博客文件夹中的_post看到我们刚刚所建的文件标题，用markdown编辑器打开就可以开始编辑了。现在你可以随便写点内容，保存之后，我们一起来本地测试一下，在终端输入：</h3><pre><code>hexo server
+</code></pre><h3 id="待服务器启动后，打开浏览器输入："><a href="#待服务器启动后，打开浏览器输入：" class="headerlink" title="待服务器启动后，打开浏览器输入："></a>待服务器启动后，打开浏览器输入：</h3><pre><code>http://localhost:4000/
+</code></pre><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;这时你就可以看到你刚刚编辑的文章了，怎么样，成功了吧 ☺️ 。</p>
+<font color="green" size="3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;你以为到这里就都结束了么？那你就错了！我们现在还有一个更艰巨的任务========选择一个好看的主题😋 哈哈哈~~~~</font>  
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;大家可以根据自己的喜好选择自己喜欢的图片，这里推荐一下这个网址<font color="red"><a href="https://hexo.io/themes/" target="_blank" rel="noopener">https://hexo.io/themes/</a></font>,小编正在使用的就是其中的这个主题：<a href="http://sora3.coding.me/（强烈安利！！！！因为这个主题实在太好玩了，小编对它爱不释手" target="_blank" rel="noopener">http://sora3.coding.me/（强烈安利！！！！因为这个主题实在太好玩了，小编对它爱不释手</a> 😝😝😝 ）<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;哈哈。好了这次的内容大概就这么多了，祝大家玩的开心，写的开心。</p>
+
+    </div>
+</article>
+
+
+                </div>
+                <aside class="col-md-4 gal-left" id="sidebar">
+    <!-- 此为sidebar的搜索框, 非搜索结果页面 -->
+<aside id="sidebar-search">
+    <div class="search hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <form class="form-inline clearfix" id="search-form" method="get"
+              action="/search/index.html">
+            <input type="text" name="s" class="form-control" id="searchInput" placeholder="搜索文章~">
+            <button class="btn btn-danger btn-gal" type="submit">
+                <i class="fa fa-search"></i>
+            </button>
+        </form>
+    </div>
+</aside>
+    <aside id="sidebar-author">
+    <div class="panel panel-gal" data-aos="flip-right" data-aos-duration="3000">
+        <div class="panel-heading" style="text-align: center">
+            <i class="fa fa-quote-left"></i>
+            LY
+            <i class="fa fa-quote-right"></i>
+        </div>
+        <div class="author-panel text-center">
+            <img src="/imgs/img1.jpeg" width="140" height="140"
+                 alt="个人头像" class="author-image">
+            <p class="author-description"><p>start from zero</p>
+</p>
+        </div>
+    </div>
+</aside>
+    
+    <aside id="sidebar-recent_comments">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-comments"></i>
+            最新评论
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush"></ul>
+    </div>
+</aside>
+    
+    <!-- 要配置好leancloud才能开启此小工具 -->
+    
+    
+    <aside id="sidebar-recent_posts">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-refresh"></i>
+            近期文章
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush">
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/01/13/使用hexo和GitHub轻松搭建属于自己的博客/">使用hexo和GitHub轻松搭建自己的博客</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/01/12/文章标题/">文章标题</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/01/12/hello-world/">Hello World</a>
+                </span>
+            </li>
+            
+        </ul>
+    </div>
+</aside>
+    
+    
+    <aside id="sidebar-rand_posts">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-refresh"></i>
+            随机文章
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush">
+            
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/01/13/使用hexo和GitHub轻松搭建属于自己的博客/">使用hexo和GitHub轻松搭建自己的博客</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/01/12/文章标题/">文章标题</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/01/12/hello-world/">Hello World</a>
+                </span>
+            </li>
+            
+        </ul>
+    </div>
+</aside>
+    
+    
+    <aside id="gal-sets">
+        <div class="panel panel-gal hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+            <ul class="nav nav-pills pills-gal">
+                <li class="">
+                    <a href="/2018/01/13/使用hexo和GitHub轻松搭建属于自己的博客/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                </li>
+                <li class="">
+                    <a href="/2018/01/13/使用hexo和GitHub轻松搭建属于自己的博客/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
+                </li>
+                <li class="">
+                    <a href="/2018/01/13/使用hexo和GitHub轻松搭建属于自己的博客/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                </li>
+            </ul>
+            <div class="tab-content">
+                <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
+    
+    <a href="/tags/first/" style="font-size: 15.990405348877495px;" class="tag-cloud-link">first</a>
+    
+</div>
+                <div class="friend-links tab-pane nav bs-sidenav fade" id="sidebar-friend-links">
+    
+    <li>
+        <a href="http://kdays.net/days/" target="_blank">KDays Forum</a>
+    </li>
+    
+    <li>
+        <a href="http://www.gal123.com/" target="_blank">绅士导航♂</a>
+    </li>
+    
+    <li>
+        <a href="http://www.moe123.com/" target="_blank">萌导航</a>
+    </li>
+    
+</div>
+                <div class="links tab-pane nav bs-sidenav fade" id="sidebar-links">
+    
+    <li>
+        <a href="https://github.com/ZEROKISEKI/" target="_blank">Github</a>
+    </li>
+    
+    <li>
+        <a href="https://coding.net/u/SORA1" target="_blank">Coding</a>
+    </li>
+    
+    <li>
+        <a href="https://www.zhihu.com/people/aonosora/activities" target="_blank">知乎</a>
+    </li>
+    
+</div>
+            </div>
+        </div>
+    </aside>
+    
+</aside>
+            </div>
+        </div>
+    </div>
+    <footer id="gal-footer">
+    <div class="container">
+        Copyright © 2018 LY Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>.&nbsp;Theme by <a href="https://github.com/ZEROKISEKI" target="_blank">AONOSORA</a>
+    </div>
+</footer>
+
+<!-- 回到顶端 -->
+<div id="gal-gotop">
+    <i class="fa fa-angle-up"></i>
+</div>
+</body>
+<script src="/js/activate-power-mode.js"></script>
+<script>
+
+    // 配置highslide
+	hs.graphicsDir = '/js/highslide/graphics/'
+    hs.outlineType = "rounded-white";
+    hs.dimmingOpacity = 0.8;
+    hs.outlineWhileAnimating = true;
+    hs.showCredits = false;
+    hs.captionEval = "this.thumb.alt";
+    hs.numberPosition = "caption";
+    hs.align = "center";
+    hs.transitions = ["expand", "crossfade"];
+    hs.lang.number = '共%2张图, 当前是第%1张';
+    hs.addSlideshow({
+      interval: 5000,
+      repeat: true,
+      useControls: true,
+      fixedControls: "fit",
+      overlayOptions: {
+        opacity: 0.75,
+        position: "bottom center",
+        hideOnMouseOut: true
+      }
+    })
+
+    // 初始化aos
+    AOS.init({
+      duration: 1000,
+      delay: 0,
+      easing: 'ease-out-back'
+    });
+
+</script>
+<script>
+	POWERMODE.colorful = 'true';    // make power mode colorful
+	POWERMODE.shake = 'true';       // turn off shake
+	// TODO 这里根据具体情况修改
+	document.body.addEventListener('input', POWERMODE);
+</script>
+<script>
+    window.slideConfig = {
+      prefix: '/imgs/slide/background',
+      ext: 'jpg',
+      maxCount: '8'
+    }
+</script>
+<script src="/js/hs.js"></script>
+<script src="/js/blog.js"></script>
+
+<script src="/js/oni.js"></script>
+
+
+
+</html>
