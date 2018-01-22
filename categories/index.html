@@ -218,6 +218,15 @@
 </article>
 
 
+<div id="comments-template"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script>
+	if(!window.commentConfig) {
+      window.commentConfig = {}
+      window.commentConfig.title = 'categories'
+    }
+</script>
+
 
                 </div>
                 <aside class="col-md-4 gal-left" id="sidebar">
@@ -322,13 +331,13 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2018/01/13/使用hexo和GitHub轻松搭建属于自己的博客/">使用hexo和GitHub轻松搭建自己的博客</a>
+                    <a href="/2018/01/12/文章标题/">文章标题</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2018/01/12/文章标题/">文章标题</a>
+                    <a href="/2018/01/13/使用hexo和GitHub轻松搭建属于自己的博客/">使用hexo和GitHub轻松搭建自己的博客</a>
                 </span>
             </li>
             
@@ -359,7 +368,7 @@
             <div class="tab-content">
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/tags/first/" style="font-size: 18.586764146822972px;" class="tag-cloud-link">first</a>
+    <a href="/tags/first/" style="font-size: 13.033331435225904px;" class="tag-cloud-link">first</a>
     
 </div>
                 <div class="friend-links tab-pane nav bs-sidenav fade" id="sidebar-friend-links">
@@ -464,5 +473,25 @@
 <script src="/js/oni.js"></script>
 
 
+
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+    if(window.commentConfig) {
+      window.commentConfig.owner = 'Xqqqqqq'
+      window.commentConfig.repo = 'tellMe'
+      window.commentConfig.client_id = 'd4f0e52917a3f2aa580f'
+      window.commentConfig.client_secret = '0c43b55536f0400cf62343b179d405056dd45ca7'
+      window.commentConfig.redirect_uri = 'null'
+    } else {
+      window.commentConfig = {
+        owner: 'Xqqqqqq',
+        repo: 'tellMe',
+        client_id: 'd4f0e52917a3f2aa580f',
+        client_secret: '0c43b55536f0400cf62343b179d405056dd45ca7',
+        redirect_uri: 'null'
+      }
+    }
+</script>
+<script src="/js/comment/gitment.js"></script>
 
 </html>
