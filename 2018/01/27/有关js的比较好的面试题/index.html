@@ -12,7 +12,7 @@
     
     
     
-    <title>archive_a | LMY</title>
+    <title>有关js的比较好的面试题 | LMY</title>
     <link href=”http://liyanyan1996.cn“ rel=”prefetch” />
 
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -115,7 +115,7 @@
                 
                 
                 
-                <li class="current">
+                <li class="">
                     <a href="/archives">
                         <i class="fa fa-archive"></i>归档
                     </a>
@@ -182,19 +182,27 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8 gal-right" id="mainstay">
-                    <article class="article well article-body" id="article-archive">
+                    
+<article class="article well article-body" id="article">
     <div class="breadcrumb">
         <i class="fa fa-home"></i>
         <a href="http://liyanyan1996.cn">LMY</a>
         >
-        <span>归档</span>
+        <span>有关js的比较好的面试题</span>
     </div>
     <!-- 大型设备详细文章 -->
     <div class="hidden-xs">
         <div class="title-article">
             <h1>
-                <a href="/archives">归档</a>
+                <a href="/2018/01/27/有关js的比较好的面试题/">有关js的比较好的面试题</a>
             </h1>
+        </div>
+        <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-calendar"></i> 2018-01-27
+            </span>
+            
         </div>
     </div>
     <!-- 小型设备详细文章 -->
@@ -202,43 +210,62 @@
         <center>
             <div class="title-article">
                 <h4>
-                    <a href="/archives">归档</a>
+                    <a href="/2018/01/27/有关js的比较好的面试题/">有关js的比较好的面试题</a>
                 </h4>
             </div>
+            <p>
+                <i class="fa fa-calendar"></i> 2018-01-27
+            </p>
+            <p>
+                
+                
+            </p>
         </center>
     </div>
-    <div class="content-article" style="margin-top: 30px;">
-        
-        
-            <h1 style="font-size: 24px; margin-top: 40px;">2018年</h1>
-            
-        <div class="alert alert-info" style="font-size: 14px; line-height: 2; font-weight: bold;">
-            
-             
-             
-                        <a href="/2018/01/27/有关js的比较好的面试题/">有关js的比较好的面试题</a>
-                        <br>
-            
-             
-                        <a href="/2018/01/20/浅谈css的三种预处理器-Less，Sass以及Stylus/">浅谈css的三种预处理器--Less，Sass以及Stylus</a>
-                        <br>
-            
-             
-                        <a href="/2018/01/13/使用hexo和GitHub轻松搭建属于自己的博客/">使用hexo和GitHub轻松搭建自己的博客</a>
-                        <br>
-            
-             
-                        <a href="/2018/01/12/文章标题/">文章标题</a>
-                        <br>
-            
-             
-                        <a href="/2018/01/12/hello-world/">Hello World</a>
-                        <br>
-            
-                    </div>
-        
+    <div class="content-article">
+        <h1 id="有关js的比较好的面试题"><a href="#有关js的比较好的面试题" class="headerlink" title="有关js的比较好的面试题"></a>有关js的比较好的面试题</h1><h2 id="1-什么是JavaScript？"><a href="#1-什么是JavaScript？" class="headerlink" title="1.什么是JavaScript？"></a>1.什么是JavaScript？</h2><blockquote>
+<p>答：JavaScript是客户端和服务器端脚本语言，可以插入到HTML页面中，并且是目前较热门的Web开发语言。同时，JavaScript也是面向对象编程语言。</p>
+</blockquote>
+<h2 id="2-什么是全局变量？这些变量如何声明，使用全局变量有哪些问题？"><a href="#2-什么是全局变量？这些变量如何声明，使用全局变量有哪些问题？" class="headerlink" title="2.什么是全局变量？这些变量如何声明，使用全局变量有哪些问题？"></a>2.什么是全局变量？这些变量如何声明，使用全局变量有哪些问题？</h2><blockquote>
+<p>答：全局变量是整个代码长度可用的变量，也就是说这些变量没有任何作用域。var关键字用于声明局部变量或对象。如果省略var关键字，则声明一个全局变量。  </p>
+<font color="red">使用全局变量所面临的问题是本地和全局变量名称的冲突。此外，很难调试和测试依赖于全局变量的代码。</font>
+
+</blockquote>
+<h2 id="3-如果有这样一段代码，他最后的运行结果是什么"><a href="#3-如果有这样一段代码，他最后的运行结果是什么" class="headerlink" title="3.如果有这样一段代码，他最后的运行结果是什么?"></a>3.如果有这样一段代码，他最后的运行结果是什么?</h2><blockquote>
+<p>for (var i = 0; i &lt; 5; i++) {<br>    　　setTimeout(function() {<br>        　　　　console.log(new Date, i);<br>    　　}, 1000);<br>}<br>console.log(new Date, i);</p>
+</blockquote>
+<p><font color="orange">实际运行结果为：5,5,5,5,5,5；</font><br>这是由于：JS 中同步和异步代码的区别、变量作用域、闭包等概念产生的</p>
+<h2 id="4-接着，如果我们约定，用箭头表示其前后的两次输出之间有-1-秒的时间间隔，而逗号表示其前后的两次输出之间的时间间隔可以忽略，代码实际运行的结果该如何描述？"><a href="#4-接着，如果我们约定，用箭头表示其前后的两次输出之间有-1-秒的时间间隔，而逗号表示其前后的两次输出之间的时间间隔可以忽略，代码实际运行的结果该如何描述？" class="headerlink" title="4.接着，如果我们约定，用箭头表示其前后的两次输出之间有 1 秒的时间间隔，而逗号表示其前后的两次输出之间的时间间隔可以忽略，代码实际运行的结果该如何描述？"></a>4.接着，如果我们约定，用箭头表示其前后的两次输出之间有 1 秒的时间间隔，而逗号表示其前后的两次输出之间的时间间隔可以忽略，代码实际运行的结果该如何描述？</h2><blockquote>
+<p>答：<font color="orange">5 -&gt; 5,5,5,5,5  </font><br>即第 1 个 5 直接输出，1 秒之后，输出 5 个 5；<br>这是因为：循环执行过程中，几乎同时设置了 5 个定时器，一般情况下，这些定时器都会在 1 秒之后触发，而循环完的输出是立即执行的</p>
+</blockquote>
+<h2 id="5-如果你以为到这里就结束了的话，那你就太天真了。新的问题来了，如果期望代码的输出变成：5-gt-0-1-2-3-4，该怎么改造代码？"><a href="#5-如果你以为到这里就结束了的话，那你就太天真了。新的问题来了，如果期望代码的输出变成：5-gt-0-1-2-3-4，该怎么改造代码？" class="headerlink" title="5.如果你以为到这里就结束了的话，那你就太天真了。新的问题来了，如果期望代码的输出变成：5 -&gt; 0,1,2,3,4，该怎么改造代码？"></a>5.如果你以为到这里就结束了的话，那你就太天真了。新的问题来了，如果期望代码的输出变成：5 -&gt; 0,1,2,3,4，该怎么改造代码？</h2><blockquote>
+<p>for (var i = 0; i &lt; 5; i++) {<br>    　　(function(j) {  // j = i<br>        　　　　setTimeout(function() {<br>           　　　　　　 console.log(new Date, j);<br>        　　　　}, 1000);<br>    　　})(i);<br>}<br>console.log(new Date, i);</p>
+</blockquote>
+<p>或者：  </p>
+<blockquote>
+<p>var output = function (i) {<br>    　　setTimeout(function() {<br>        　　　　console.log(new Date, i);<br>    　　}, 1000);<br>};<br>for (var i = 0; i &lt; 5; i++) {<br>    　　output(i);  // 这里传过去的 i 值被复制了<br>}<br>console.log(new Date, i);  </p>
+</blockquote>
+<h2 id="6-在增加一点难度：如果期望代码的输出变成-0-gt-1-gt-2-gt-3-gt-4-gt-5，并且要求原有的代码块中的循环和两处-console-log-不变，该怎么改造代码？"><a href="#6-在增加一点难度：如果期望代码的输出变成-0-gt-1-gt-2-gt-3-gt-4-gt-5，并且要求原有的代码块中的循环和两处-console-log-不变，该怎么改造代码？" class="headerlink" title="6.在增加一点难度：如果期望代码的输出变成 0 -&gt; 1 -&gt; 2 -&gt; 3 -&gt; 4 -&gt; 5，并且要求原有的代码块中的循环和两处 console.log 不变，该怎么改造代码？"></a>6.在增加一点难度：如果期望代码的输出变成 0 -&gt; 1 -&gt; 2 -&gt; 3 -&gt; 4 -&gt; 5，并且要求原有的代码块中的循环和两处 console.log 不变，该怎么改造代码？</h2><p>新的需求可以精确的描述为：代码执行时，立即输出 0，之后每隔 1 秒依次输出 1,2,3,4，循环结束后在大概第 5 秒的时候输出 5。那么我们就可以使用Promise来解决这个问题（Promise 是 ES6 中的新特性）</p>
+<blockquote>
+<p>const tasks = []; // 这里存放异步操作的 Promise<br>const output = (i) =&gt; new Promise((resolve) =&gt; {<br>    　　setTimeout(() =&gt; {<br>        　　　　console.log(new Date, i);<br>        　　　　resolve();<br>    　　}, 1000 * i);<br>});  </p>
+<p>// 生成全部的异步操作<br>for (var i = 0; i &lt; 5; i++) {<br>    　　tasks.push(output(i));<br>}  </p>
+<p>// 异步操作完成之后，输出最后的 i<br>Promise.all(tasks).then(() =&gt; {<br>    　　setTimeout(() =&gt; {<br>        　　　　console.log(new Date, i);<br>    　　}, 1000);<br>});  </p>
+</blockquote>
+<p>参考来源：王仕军 –<a href="https://juejin.im/post/58cf180b0ce4630057d6727c" target="_blank" rel="noopener">https://juejin.im/post/58cf180b0ce4630057d6727c</a></p>
+
     </div>
 </article>
+
+
+<div id="comments-template"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script>
+	if(!window.commentConfig) {
+      window.commentConfig = {}
+      window.commentConfig.title = '有关js的比较好的面试题'
+    }
+</script>
+
                 </div>
                 <aside class="col-md-4 gal-left" id="sidebar">
     <!-- 此为sidebar的搜索框, 非搜索结果页面 -->
@@ -379,19 +406,19 @@
         <div class="panel panel-gal hidden-xs" data-aos="fade-up" data-aos-duration="2000">
             <ul class="nav nav-pills pills-gal">
                 <li class="">
-                    <a href="/archives/2018/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                    <a href="/2018/01/27/有关js的比较好的面试题/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
                 </li>
                 <li class="">
-                    <a href="/archives/2018/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
+                    <a href="/2018/01/27/有关js的比较好的面试题/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
                 </li>
                 <li class="">
-                    <a href="/archives/2018/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                    <a href="/2018/01/27/有关js的比较好的面试题/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
                 </li>
             </ul>
             <div class="tab-content">
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/tags/first/" style="font-size: 18.253024865323997px;" class="tag-cloud-link">first</a>
+    <a href="/tags/first/" style="font-size: 11.662602575747751px;" class="tag-cloud-link">first</a>
     
 </div>
                 <div class="friend-links tab-pane nav bs-sidenav fade" id="sidebar-friend-links">
