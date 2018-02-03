@@ -12,7 +12,7 @@
     
     
     
-    <title>有关React的一些基础知识总结 | LMY</title>
+    <title>CSS3新特性，伪类，伪元素，锚伪类 | LMY</title>
     <link href=”http://liyanyan1996.cn“ rel=”prefetch” />
 
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -188,19 +188,19 @@
         <i class="fa fa-home"></i>
         <a href="http://liyanyan1996.cn">LMY</a>
         >
-        <span>有关React的一些基础知识总结</span>
+        <span>CSS3新特性，伪类，伪元素，锚伪类</span>
     </div>
     <!-- 大型设备详细文章 -->
     <div class="hidden-xs">
         <div class="title-article">
             <h1>
-                <a href="/2018/01/30/有关React的一些基础知识总结/">有关React的一些基础知识总结</a>
+                <a href="/2018/02/03/CSS3新特性，伪类，伪元素，锚伪类/">CSS3新特性，伪类，伪元素，锚伪类</a>
             </h1>
         </div>
         <div class="tag-article">
             
             <span class="label label-gal">
-                <i class="fa fa-calendar"></i> 2018-01-30
+                <i class="fa fa-calendar"></i> 2018-02-03
             </span>
             
         </div>
@@ -210,11 +210,11 @@
         <center>
             <div class="title-article">
                 <h4>
-                    <a href="/2018/01/30/有关React的一些基础知识总结/">有关React的一些基础知识总结</a>
+                    <a href="/2018/02/03/CSS3新特性，伪类，伪元素，锚伪类/">CSS3新特性，伪类，伪元素，锚伪类</a>
                 </h4>
             </div>
             <p>
-                <i class="fa fa-calendar"></i> 2018-01-30
+                <i class="fa fa-calendar"></i> 2018-02-03
             </p>
             <p>
                 
@@ -223,131 +223,39 @@
         </center>
     </div>
     <div class="content-article">
-        <h1 id="有关React的一些基础知识总结"><a href="#有关React的一些基础知识总结" class="headerlink" title="有关React的一些基础知识总结"></a>有关React的一些基础知识总结</h1><h2 id="1-什么是属性？什么是状态？"><a href="#1-什么是属性？什么是状态？" class="headerlink" title="1.什么是属性？什么是状态？"></a>1.什么是属性？什么是状态？</h2><p>（1）  </p>
-<p><font color="red">·····属性的定义·····</font></p>
-<blockquote>
-<p>  属性不可以修改，也就是属性不可以由组件进行修改，组件的属性是由父组件传递过来的，相当于组件在出生的时候带的。</p>
-</blockquote>
-<p><font color="red">·····属性的用法······</font><br><code>&lt;Welcome name=&quot;Sara&quot; /&gt;;</code><br><code>&lt;Welcome  name = {Sara} /&gt;</code><br><code>&lt;Welcome  name = {“Sara”} /&gt;</code><br><code>&lt;Welcome  name = {[1,2,3]} /&gt;</code> 数组<br><code>&lt;Welcome  name = {Function} /&gt;</code>  函数<br>或者：</p>
-<blockquote>
-<p>var props = {<br>　　one :”123”,<br>　　tow :321<br>}<br><code>&lt;ClassNameB {…props} /&gt;</code> </p>
-</blockquote>
-<p>增加三个引号相当于这里面拿到两个属性了（one和two）</p>
-<p>（2）   </p>
-<p><font color="red">·····状态的定义······</font>   </p>
-<blockquote>
-<p>状态：使用 this.state 和 this.setState。状态是事物自己处理的，不和属性一样，属性是天生的，事物一般来说没有办法修改。状态是事物本身的是事物的私有属性，也就是由自己决定，父组件和子组件都不能改变他。给定了状态就一定知道结果是什么。状态与属性十分相似，但是状态是私有的，完全受控于当前组件 。</p>
-</blockquote>
-<p>（3）  </p>
-<p><font color="red">······属性和状态的相同点······</font>  </p>
-<blockquote>
-<p>1.都是纯js对象<br>2.都会触发render函数更新<br>3.都具有确定性：状态相同，结果一定相同，这就是确定性。给定了相同的属性或者相同的状态，结果都是一样的。</p>
-</blockquote>
-<p>（4）  </p>
-<p><font color="red">······如何区分属性和状态·····</font> </p>
-<blockquote>
-<p>组件在运行时需要修改的数据就是状态。<br>属性的核心要点就是不能修改！<br>根本的区别：组件在运行时需要去修改维护的就是状态  </p>
-</blockquote>
-<p>参照：<a href="https://www.cnblogs.com/Gabriel-Wei/p/6111822.html" target="_blank" rel="noopener">https://www.cnblogs.com/Gabriel-Wei/p/6111822.html</a>  </p>
-<h2 id="2-什么是元素？什么是组件"><a href="#2-什么是元素？什么是组件" class="headerlink" title="2.什么是元素？什么是组件"></a>2.什么是元素？什么是组件</h2><p>（1）  </p>
-<p><font color="red">·····元素的定义·····</font>   </p>
-<blockquote>
-<p>元素是构成 React 应用的最小单位，用来描述你在屏幕上看到的内容。元素事实上只是构成组件的一个部分。  </p>
-</blockquote>
-<p><font color="red">·····元素的用法······</font>   </p>
-<blockquote>
-<p>React 元素不是真实的 DOM 元素，它仅仅是 js 的普通对象（plain objects），所以也没办法直接调用 DOM 原生的 API。只有在这个元素渲染被完成后，才能通过选择器的方式获取它对应的 DOM 元素。如：  </p>
-</blockquote>
-<p><code>const element = &lt;h1&gt;Hello, world&lt;/h1&gt;;</code></p>
-<blockquote>
-<p>当React遇到的元素是用户自定义的组件，它会将JSX属性作为单个对象传递给该组件,这个对象称之为“props”。如：  </p>
-<p>function Welcome(props) {<br>　　return <code>&lt;h1&gt;Hello, {props.name}&lt;/h1&gt;;</code><br>}</p>
-<p>const element = <code>&lt;Welcome name=&quot;Sara&quot; /&gt;;</code><br>ReactDOM.render(<br>  　　element,<br>  　　document.getElementById(‘root’)<br>);  </p>
-</blockquote>
-<p><font color="red">·····组件的定义·····</font>  </p>
-<blockquote>
-<p>组件从概念上看就像是函数，它可以接收任意的输入值（称之为“props”），并返回一个需要在页面上展示的React元素。组件可以将UI切分成一些的独立的、可复用的部件，这样你就只需专注于构建每一个单独的部件。  </p>
-</blockquote>
-<p><font color="red">·····组件的用法······</font><br>定义一个组件最简单的方式是使用JavaScript函数：  </p>
-<blockquote>
-<p>function Welcome(props) {<br>  　　return <code>&lt;h1&gt;Hello, {props.name}&lt;/h1&gt;;</code><br>}  </p>
-</blockquote>
-<p>也可以使用 ES6 class 来定义一个组件:  </p>
-<blockquote>
-<p>class Welcome extends React.Component {<br>　　render() {<br>　　　　return <code>&lt;h1&gt;Hello, {this.props.name}&lt;/h1&gt;;</code><br>　　}　　</p>
-<p>}  </p>
-</blockquote>
-<p>参考：<a href="http://blog.csdn.net/sinat_37924453/article/details/78138268" target="_blank" rel="noopener">http://blog.csdn.net/sinat_37924453/article/details/78138268</a>  </p>
-<h2 id="3-组件分为哪几种类型？"><a href="#3-组件分为哪几种类型？" class="headerlink" title="3.组件分为哪几种类型？"></a>3.组件分为哪几种类型？</h2><p><font color="red">·····React组件的两个重要特性：······</font>   </p>
-<blockquote>
-<p>1.props:组件属性，专门用来连接父子组件间通信，父组件传输父类成员，子组件可以利用但不能编辑父类成员；<br>2.state：专门负责保存和改变组件内部的状态；  </p>
-</blockquote>
-<p>类型一：无状态组件  </p>
-<blockquote>
-<p>无状态组件(Stateless Component)是最基础的组件形式，由于没有状态的影响所以就是纯静态展示的作用。一般来说，各种UI库里也是最开始会开发的组件类别。如按钮、标签、输入框等。它的基本组成结构就是属性（props）加上一个渲染函数（render）。 </p>
-</blockquote>
-<pre><code>const PureComponent = (props) =&gt; (
-&lt;div&gt;
-    //use props
-&lt;/div&gt;
-</code></pre><p>)  </p>
-<p>类型二：有状态组件  </p>
-<blockquote>
-<p>如果组件内部包含状态（state）且状态随着事件或者外部的消息而发生改变的时候，这就构成了有状态组件（Stateful Component）。有状态组件通常会带有生命周期(lifecycle)，用以在不同的时刻触发状态的更新。这种组件也是通常在写业务逻辑中最经常使用到的。  </p>
-</blockquote>
-<pre><code>// 使用状态 实现时钟
-class Time extends React.Component{
-    // 构造器函数，初始化
-    constructor(props) {
-        super(props);
-        // 初始化状态
-        this.state = {
-            date: new Date()
-        }
-        // 每隔一秒 修改状态
-        setInterval(()=&gt;{
-            console.log(&quot;定时器执行&quot;)
-            // 赋值，修改
-            this.setState({
-                date:new Date()
-            })
-        },1000)
-    }
-    render(){
-        console.log(&quot;时间&quot;+this.state.date)
-        return (
-            &lt;p&gt;当前时间：{this.state.date.toLocaleTimeString()}&lt;/p&gt;
-        )
-    }
-}
+        <h1 id="CSS3新特性，伪类，伪元素，锚伪类"><a href="#CSS3新特性，伪类，伪元素，锚伪类" class="headerlink" title="CSS3新特性，伪类，伪元素，锚伪类"></a>CSS3新特性，伪类，伪元素，锚伪类</h1><h2 id="CSS3新特性"><a href="#CSS3新特性" class="headerlink" title="CSS3新特性"></a>CSS3新特性</h2><font color="red">1.CSS3的选择器</font><br> 1）p:last-child 匹配父元素的最后一个子元素p<br> 2）p:nth-child(n)匹配父元素的第n个子元素p<br> 3）p:nth-last-child(n) CSS3 匹配父元素的倒数第n个子元素p<br><br><font color="red">2.@Font-face 特性</font><br> Font-face 可以用来加载字体样式，而且它还能够加载服务器端的字体文件，让客户端显示客户端所没有安装的字体。<br>@font-face {<br> 　　font-family: BorderWeb;<br> 　　src:url(BORDERW0.eot);<br> }<br>@font-face {<br> 　　font-family: Runic;<br> 　　src:url(RUNICMT0.eot);<br>}<br>.border { FONT-SIZE: 35px; COLOR: black; FONT-FAMILY: “BorderWeb” }<br>.event { FONT-SIZE: 110px; COLOR: black; FONT-FAMILY: “Runic” }<br><br><font color="red">3.圆角</font>   
 
-ReactDOM.render(
-    &lt;Time /&gt;,
-    document.getElementById(&quot;root&quot;)
-)  
-</code></pre><p>类型三：容器组件  </p>
+<font color="red">4.多列布局 （multi-column layout）：兼容性不好，还不够成熟。还不能用在实际项目中。</font>   
+
+<font color="red">5.阴影</font>   
+
+<font color="red">6.CSS3 的渐变效果</font> 
+
+<font color="red">7.css弹性盒子模型</font>  
+
+<p><font color="red">8.CSS3制作特效</font><br>1）Transition 对象变换时的过渡效果  </p>
 <blockquote>
-<p>在具体的项目实践中，我们通常的前端数据都是通过Ajax请求获取的，而且获取的后端数据也需要进一步的做处理。为了使组件的职责更加单一，引入了容器组件(Container Component)的概念。我们将数据获取以及处理的逻辑放在容器组件中，使得组件的耦合性进一步地降低。  </p>
+<p> transition-property 对象参与过渡的属性<br> transition-duration 过渡的持续时间<br> transition-timing-function 过渡的类型<br> transition-delay 延迟过渡的时间</p>
 </blockquote>
-<pre><code>var UserListContainer = React.createClass({
-  getInitialState: function() {
-    return {
-      users: []
-    }
-  },
-
-  componentDidMount: function() {
-    var _this = this;
-    axios.get(&apos;/path/to/user-api&apos;).then(function(response) {
-      _this.setState({users: response.data});
-    });
-  },
-
-  render: function() {
-    return (&lt;UserList users={this.state.users} /&gt;);
-  }
-});
-</code></pre><p>参考：<a href="https://juejin.im/post/596d65d66fb9a06bae1e19e2" target="_blank" rel="noopener">https://juejin.im/post/596d65d66fb9a06bae1e19e2</a></p>
+<p>2) Transforms 2D转换效果  </p>
+<blockquote>
+<p>translate（水平移动）、rotate（旋转）、scale（伸缩）、skew（倾斜）  </p>
+</blockquote>
+<p>3) Animation动画特效   </p>
+<p>参照：<a href="http://blog.csdn.net/lxcao/article/details/52797914" target="_blank" rel="noopener">http://blog.csdn.net/lxcao/article/details/52797914</a><br>以及：<a href="http://blog.csdn.net/chandoudeyuyi/article/details/69206236" target="_blank" rel="noopener">http://blog.csdn.net/chandoudeyuyi/article/details/69206236</a>  </p>
+<h2 id="伪类与伪元素"><a href="#伪类与伪元素" class="headerlink" title="伪类与伪元素"></a>伪类与伪元素</h2><p>1）.伪类:<br><img src="http://p2oru01hq.bkt.clouddn.com/%E4%BC%AA%E7%B1%BB.png" alt=""><br>2）.伪元素：CSS伪元素：用于将特殊的效果添加到某些选择器。伪元素代表了某个元素的子元素，这个子元素虽然在逻辑上存在，但却并不实际存在于文档树中。<br><img src="http://p2oru01hq.bkt.clouddn.com/%E4%BC%AA%E5%85%83%E7%B4%A0.png" alt="">  </p>
+<blockquote>
+<p>伪类的效果可以通过添加一个实际的类来达到，而伪元素的效果则需要通过添加一个实际的元素才能达到，这也是为什么他们一个称为伪类，一个称为伪元素的原因。  </p>
+</blockquote>
+<p>3）新增伪类<br><img src="http://p2oru01hq.bkt.clouddn.com/%E6%96%B0%E5%A2%9E%E4%BC%AA%E7%B1%BB.png" alt=""></p>
+<h2 id="锚伪类"><a href="#锚伪类" class="headerlink" title="锚伪类"></a>锚伪类</h2><p>a:link{color:#ff00ff} 表示未访问的链接</p>
+<p>a:visited{color:#00ff00} 表示已访问的链接</p>
+<p>a:hover{color:#ff00ff} 鼠标移动到链接上的情况</p>
+<p>a:active{colot:#0000ff} 表示选定的链接</p>
+<blockquote>
+<p>注意：a:hover必须放在a:link和a:visited之后，a:active必须放在a:hover之后</p>
+</blockquote>
+<p>参照：<a href="http://blog.csdn.net/zhouziyu2011/article/details/58605705" target="_blank" rel="noopener">http://blog.csdn.net/zhouziyu2011/article/details/58605705</a></p>
 
     </div>
 </article>
@@ -358,7 +266,7 @@ ReactDOM.render(
 <script>
 	if(!window.commentConfig) {
       window.commentConfig = {}
-      window.commentConfig.title = '有关React的一些基础知识总结'
+      window.commentConfig.title = 'CSS3新特性，伪类，伪元素，锚伪类'
     }
 </script>
 
@@ -526,19 +434,19 @@ ReactDOM.render(
         <div class="panel panel-gal hidden-xs" data-aos="fade-up" data-aos-duration="2000">
             <ul class="nav nav-pills pills-gal">
                 <li class="">
-                    <a href="/2018/01/30/有关React的一些基础知识总结/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                    <a href="/2018/02/03/CSS3新特性，伪类，伪元素，锚伪类/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
                 </li>
                 <li class="">
-                    <a href="/2018/01/30/有关React的一些基础知识总结/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
+                    <a href="/2018/02/03/CSS3新特性，伪类，伪元素，锚伪类/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
                 </li>
                 <li class="">
-                    <a href="/2018/01/30/有关React的一些基础知识总结/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                    <a href="/2018/02/03/CSS3新特性，伪类，伪元素，锚伪类/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
                 </li>
             </ul>
             <div class="tab-content">
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/tags/first/" style="font-size: 13.522974753563313px;" class="tag-cloud-link">first</a>
+    <a href="/tags/first/" style="font-size: 16.085119097085997px;" class="tag-cloud-link">first</a>
     
 </div>
                 <div class="friend-links tab-pane nav bs-sidenav fade" id="sidebar-friend-links">
