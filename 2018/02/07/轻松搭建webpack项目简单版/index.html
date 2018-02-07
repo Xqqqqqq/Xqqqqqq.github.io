@@ -12,7 +12,7 @@
     
     
     
-    <title>archive_a | LMY</title>
+    <title>轻松搭建webpack项目简单版 | LMY</title>
     <link href=”http://liyanyan1996.cn“ rel=”prefetch” />
 
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -115,7 +115,7 @@
                 
                 
                 
-                <li class="current">
+                <li class="">
                     <a href="/archives">
                         <i class="fa fa-archive"></i>归档
                     </a>
@@ -182,19 +182,27 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8 gal-right" id="mainstay">
-                    <article class="article well article-body" id="article-archive">
+                    
+<article class="article well article-body" id="article">
     <div class="breadcrumb">
         <i class="fa fa-home"></i>
         <a href="http://liyanyan1996.cn">LMY</a>
         >
-        <span>归档</span>
+        <span>轻松搭建webpack项目简单版</span>
     </div>
     <!-- 大型设备详细文章 -->
     <div class="hidden-xs">
         <div class="title-article">
             <h1>
-                <a href="/archives">归档</a>
+                <a href="/2018/02/07/轻松搭建webpack项目简单版/">轻松搭建webpack项目简单版</a>
             </h1>
+        </div>
+        <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-calendar"></i> 2018-02-07
+            </span>
+            
         </div>
     </div>
     <!-- 小型设备详细文章 -->
@@ -202,55 +210,141 @@
         <center>
             <div class="title-article">
                 <h4>
-                    <a href="/archives">归档</a>
+                    <a href="/2018/02/07/轻松搭建webpack项目简单版/">轻松搭建webpack项目简单版</a>
                 </h4>
             </div>
+            <p>
+                <i class="fa fa-calendar"></i> 2018-02-07
+            </p>
+            <p>
+                
+                
+            </p>
         </center>
     </div>
-    <div class="content-article" style="margin-top: 30px;">
-        
-        
-            <h1 style="font-size: 24px; margin-top: 40px;">2018年</h1>
-            
-        <div class="alert alert-info" style="font-size: 14px; line-height: 2; font-weight: bold;">
-            
-             
-             
-                        <a href="/2018/02/07/轻松搭建webpack项目简单版/">轻松搭建webpack项目简单版</a>
-                        <br>
-            
-             
-                        <a href="/2018/02/03/CSS3新特性，伪类，伪元素，锚伪类/">CSS3新特性，伪类，伪元素，锚伪类</a>
-                        <br>
-            
-             
-                        <a href="/2018/01/30/有关React的一些基础知识总结/">有关React的一些基础知识总结</a>
-                        <br>
-            
-             
-                        <a href="/2018/01/27/有关js的比较好的面试题/">有关js的比较好的面试题</a>
-                        <br>
-            
-             
-                        <a href="/2018/01/20/浅谈css的三种预处理器-Less，Sass以及Stylus/">浅谈css的三种预处理器--Less，Sass以及Stylus</a>
-                        <br>
-            
-             
-                        <a href="/2018/01/13/使用hexo和GitHub轻松搭建属于自己的博客/">使用hexo和GitHub轻松搭建自己的博客</a>
-                        <br>
-            
-             
-                        <a href="/2018/01/12/文章标题/">文章标题</a>
-                        <br>
-            
-             
-                        <a href="/2018/01/12/hello-world/">Hello World</a>
-                        <br>
-            
-                    </div>
-        
+    <div class="content-article">
+        <h2 id="在终端中"><a href="#在终端中" class="headerlink" title="在终端中"></a>在终端中</h2><p>1.在本次项目搭建过程中我们将主要使用：yarn 这种方式。所以首先我们需要下载yarn.  </p>
+<blockquote>
+<p>npm i -g yarn   </p>
+</blockquote>
+<p>2.下载好<code>yarn</code>后，我们将新建一个文件夹  </p>
+<blockquote>
+<p>mkdir 文件夹名  </p>
+</blockquote>
+<p>3.cd到这个文件夹   </p>
+<p>4.初始化文件夹：  </p>
+<blockquote>
+<p>yarn init -y  </p>
+</blockquote>
+<p>5.建一个src文件夹，并进入该文件夹内，建一个入口文件<code>index.js</code>，建好后退回到该文件夹</p>
+<blockquote>
+<p>mkdir src<br>cd src<br>touch index.js<br>cd ..  </p>
+</blockquote>
+<p>6.安装webpack，将其添加到开发依赖中  </p>
+<blockquote>
+<p>yarn add webpack —dev  </p>
+</blockquote>
+<p>7.全局安装webpack  </p>
+<blockquote>
+<p>npm i -g webpack  </p>
+</blockquote>
+<p>8.创建一个webpack.config.js  </p>
+<blockquote>
+<p>touch webpack.config.js</p>
+</blockquote>
+<h2 id="在文件中"><a href="#在文件中" class="headerlink" title="在文件中"></a>在文件中</h2><p>此时我们在终端中的操作就可以告一段落了，下面我们打开这个文件  </p>
+<p>1.首先我们先在webpack.config.js中进行基本的配置，打开该文件  </p>
+<pre><code>const path = require(&quot;path&quot;);
+module.exports = {  
+// 入口文件
+  entry: &quot;./src/index.js&quot;,  
+  // 出口文件
+  output: {  
+   path: path.join(__dirname, &quot;dist&quot;),  
+   filename: &quot;build.js&quot;  
+  }  
+}
+</code></pre><p>现在我们可以在终端执行一下 webpack。<br>2.接下来我们打开src下的index.js文件，进行一下配置：  </p>
+<pre><code>import React from &quot;react&quot;;  
+import ReactDOM from &quot;react-dom&quot;;  
+ReactDOM.render(  
+  &lt;div&gt;  
+    &lt;h1&gt;Hello,World&lt;/h1&gt;  
+  &lt;/div&gt;,  
+  document.getElementById(&quot;root&quot;)  
+)  
+</code></pre><p>然后我们在终端安装一下：  </p>
+<blockquote>
+<p>yarn add react react-dom  </p>
+</blockquote>
+<p>3.然后我们需要配置一下webpack,在output下：</p>
+<pre><code>module: {
+    loaders: [
+      {
+      // 处理js文件
+      // test 匹配所有js文件
+        test: /\.js$/,
+        // 使用 loader
+        loader: &quot;babel-loader&quot;,
+        // 除 node_modules 文件之外
+        exclude: /node_modules/
+      }
+ }
+</code></pre><p>下载babel：  </p>
+<blockquote>
+<p>yarn add @babel/preset-react @babel/preset-env @babel/core babel-loader@8.0.0-beta.0 –dev  </p>
+</blockquote>
+<p>4.新建一个文件：<code>.babelrc</code>,然后我们来配置一下：  </p>
+<pre><code>{
+  &quot;presets&quot;: [
+        &quot;@babel/preset-env&quot;,
+    &quot;@babel/preset-react&quot;
+   ]
+}
+</code></pre><p>5.新建一个index.html来测试一下，我们会在网页上看到<code>Hello，World</code>的效果  </p>
+<p>6.接下来我们需要下一些插件，让他可以自动引入，首先，我们在webpack.config.js中继续配置 ，如：   </p>
+<pre><code>plugins: [  
+    new HTMLWebpackPlugin({  
+    //例如：
+          template: &quot;./index.html&quot;,  
+          filename: &quot;index.html&quot;,  
+          title: &quot;首页&quot;,  
+          inject: &quot;body&quot;  
+    })  
+ ]  
+</code></pre><p>配置完成后，下载：  </p>
+<blockquote>
+<p>yarn add html-webpack-plugin –dev  </p>
+</blockquote>
+<p>下载完成后，在文件中引入：  </p>
+<blockquote>
+<p>const HTMLWebpackPlugin = require(“html-webpack-plugin”);  </p>
+</blockquote>
+<p>7.启动服务</p>
+<blockquote>
+<p>yarn add webpack-dev-server&nbsp;—dev  </p>
+</blockquote>
+<p>8.在package.json中修改  </p>
+<pre><code>&quot;license&quot;: &quot;MIT&quot;,  
+// 在此处修改
+  &quot;scripts&quot;: {  
+    &quot;start&quot;: &quot;webpack-dev-server&quot;  
+  },  
+</code></pre><p>9.最后我们就可以使用 yarn start启动服务了。</p>
+
     </div>
 </article>
+
+
+<div id="comments-template"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script>
+	if(!window.commentConfig) {
+      window.commentConfig = {}
+      window.commentConfig.title = '轻松搭建webpack项目简单版'
+    }
+</script>
+
                 </div>
                 <aside class="col-md-4 gal-left" id="sidebar">
     <!-- 此为sidebar的搜索框, 非搜索结果页面 -->
@@ -427,19 +521,19 @@
         <div class="panel panel-gal hidden-xs" data-aos="fade-up" data-aos-duration="2000">
             <ul class="nav nav-pills pills-gal">
                 <li class="">
-                    <a href="/archives/2018/01/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                    <a href="/2018/02/07/轻松搭建webpack项目简单版/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
                 </li>
                 <li class="">
-                    <a href="/archives/2018/01/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
+                    <a href="/2018/02/07/轻松搭建webpack项目简单版/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
                 </li>
                 <li class="">
-                    <a href="/archives/2018/01/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                    <a href="/2018/02/07/轻松搭建webpack项目简单版/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
                 </li>
             </ul>
             <div class="tab-content">
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/tags/first/" style="font-size: 8.752290319376073px;" class="tag-cloud-link">first</a>
+    <a href="/tags/first/" style="font-size: 16.576498711003786px;" class="tag-cloud-link">first</a>
     
 </div>
                 <div class="friend-links tab-pane nav bs-sidenav fade" id="sidebar-friend-links">
