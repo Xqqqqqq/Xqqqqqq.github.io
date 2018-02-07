@@ -331,6 +331,25 @@ ReactDOM.render(
     &quot;start&quot;: &quot;webpack-dev-server&quot;  
   },  
 </code></pre><p>9.最后我们就可以使用 yarn start启动服务了。</p>
+<h2 id="另外"><a href="#另外" class="headerlink" title="另外"></a>另外</h2><p>如果你想要引入css和img的话，你只需要在终端下载：  </p>
+<blockquote>
+<p>yarn add css-loader style-loader –dev<br>yarn add url-loader  </p>
+</blockquote>
+<p>下载完成后，在webpack.config.js中配置：  </p>
+<pre><code> {  
+   test: /\.css$/,  
+   loader: [  
+     &quot;style-loader&quot;,  
+     &quot;css-loader&quot;,  
+   ],  
+   exclude: /node_modules/  
+},  
+ {  
+   test: /\.png|\.jpg|\.svg|\.jpeg$/,  
+   loader: &quot;url-loader&quot;,  
+   exclude: /node_modules/  
+ },  
+</code></pre><p>然后再在index.js中引入即可。</p>
 
     </div>
 </article>
@@ -466,19 +485,31 @@ ReactDOM.render(
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2018/02/03/CSS3新特性，伪类，伪元素，锚伪类/">CSS3新特性，伪类，伪元素，锚伪类</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
                     <a href="/2018/01/12/hello-world/">Hello World</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
+                    <a href="/2018/02/03/CSS3新特性，伪类，伪元素，锚伪类/">CSS3新特性，伪类，伪元素，锚伪类</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/01/13/使用hexo和GitHub轻松搭建属于自己的博客/">使用hexo和GitHub轻松搭建自己的博客</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
                     <a href="/2018/01/12/文章标题/">文章标题</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2018/01/30/有关React的一些基础知识总结/">有关React的一些基础知识总结</a>
                 </span>
             </li>
             
@@ -496,19 +527,7 @@ ReactDOM.render(
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2018/01/13/使用hexo和GitHub轻松搭建属于自己的博客/">使用hexo和GitHub轻松搭建自己的博客</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
                     <a href="/2018/01/20/浅谈css的三种预处理器-Less，Sass以及Stylus/">浅谈css的三种预处理器--Less，Sass以及Stylus</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2018/01/30/有关React的一些基础知识总结/">有关React的一些基础知识总结</a>
                 </span>
             </li>
             
@@ -533,7 +552,7 @@ ReactDOM.render(
             <div class="tab-content">
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/tags/first/" style="font-size: 16.576498711003786px;" class="tag-cloud-link">first</a>
+    <a href="/tags/first/" style="font-size: 10.718936787004633px;" class="tag-cloud-link">first</a>
     
 </div>
                 <div class="friend-links tab-pane nav bs-sidenav fade" id="sidebar-friend-links">
