@@ -12,7 +12,7 @@
     
     
     
-    <title>categories: hexo | LMY</title>
+    <title>实现react中的状态提升与react-redux | LMY</title>
     <link href=”http://liyanyan1996.cn“ rel=”prefetch” />
 
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -182,19 +182,27 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8 gal-right" id="mainstay">
-                    <article class="article well article-body" id="article-category">
+                    
+<article class="article well article-body" id="article">
     <div class="breadcrumb">
         <i class="fa fa-home"></i>
         <a href="http://liyanyan1996.cn">LMY</a>
         >
-        <span>目录</span>
+        <span>实现react中的状态提升与react-redux</span>
     </div>
     <!-- 大型设备详细文章 -->
     <div class="hidden-xs">
         <div class="title-article">
             <h1>
-                <a href="/categories/hexo/index.html">hexo</a>
+                <a href="/2018/03/16/实现react中的状态提升与react-redux/">实现react中的状态提升与react-redux</a>
             </h1>
+        </div>
+        <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-calendar"></i> 2018-03-16
+            </span>
+            
         </div>
     </div>
     <!-- 小型设备详细文章 -->
@@ -202,21 +210,151 @@
         <center>
             <div class="title-article">
                 <h4>
-                    <a href="/categories/hexo/index.html">hexo</a>
+                    <a href="/2018/03/16/实现react中的状态提升与react-redux/">实现react中的状态提升与react-redux</a>
                 </h4>
             </div>
+            <p>
+                <i class="fa fa-calendar"></i> 2018-03-16
+            </p>
+            <p>
+                
+                
+            </p>
         </center>
     </div>
-    <div class="content-article" style="margin-top: 30px;">
-        <div class="alert alert-info" style="font-size: 14px; line-height: 2; font-weight: bold;">
-            
-            <a href="/2018/01/13/使用hexo和GitHub轻松搭建属于自己的博客/">使用hexo和GitHub轻松搭建自己的博客</a>
-            <br>
-            
-            
-        </div>
+    <div class="content-article">
+        <p>#构建项目<br>在进行正式的代码编写之前，我们需要先构建一个项目，这里我们就构建一个简单的小项目：  </p>
+<blockquote>
+<p>npx create-react-app&nbsp;myapp   </p>
+</blockquote>
+<p>顺便我们也可以把接下来要用的redux也下载下来  </p>
+<blockquote>
+<p>yarn add redux react-redux  </p>
+</blockquote>
+<p>现在，我们已经有了一个简单的项目了，接下来进入正题：</p>
+<p>#状态提升</p>
+<blockquote>
+<p>应用场景：React的状态提升就是用户对子组件操作，子组件不改变自己的状态，通过自己的props把这个操作改变的数据传递给父组件，改变父组件的状态，从而改变受父组件控制的所有子组件的状态，这也是React单项数据流的特性决定的。<font color="red">官方的原话是：共享 state(状态) 是通过将其移动到需要它的组件的最接近的共同祖先组件来实现的。 这被称为“状态提升(Lifting State Up)”。</font>  </p>
+</blockquote>
+<p>此时在我们的项目中有个<code>src</code>,我们在这个里面建一个index.js文件，写入：</p>
+<pre><code>import React, { Component } from &apos;react&apos;;
+import ReactDOM from &apos;react-dom&apos;;
+
+class App extends Component {
+    constructor(props) {
+        super(props)
+    }
+    render() {
+        return (
+            &lt;Fragment&gt;
+                &lt;B/&gt;
+            &lt;/Fragment&gt;    
+        )
+    }
+}
+class B extends Component {
+    constructor(props) {
+        super(props)
+    }
+    render() {
+        return (
+            &lt;h2&gt;Hello, World&lt;/h2&gt;
+        )
+    }
+}
+
+ReactDOM.render(&lt;App /&gt;, document.getElementById(&apos;root&apos;))  
+</code></pre><p>这一步我们主要是建一个<code>B</code>组件，然后在<code>App</code>组件中进行使用<br>接下来我们将在<code>B</code>组件中建一个事件，并进行处理:  </p>
+<pre><code>class B extends Component {
+    constructor(props) {
+        super(props)
+        //改变this指向
+        this.shijian =this.shijian.bind(this)
+    }
+    // 事件名称
+    shijian() {
+
+    }
+    render() {
+        return (
+            //绑定
+            &lt;h2 onClick={this.shijian}&gt;Hello, World&lt;/h2&gt;
+        )
+    }
+}
+</code></pre><p>然后我们在<code>App</code>中，即父组件中进行设置:</p>
+<pre><code>class App extends Component {
+    constructor(props) {
+        super(props)
+        this.hanshu =this.hanshu.bind(this)
+    }
+    // 定义一个函数
+    hanshu(aaa) {
+        console.log(aaa);
+    }
+    render() {
+        return (
+            &lt;Fragment&gt;
+                {/* 我们可以随便起名字，将此函数给子组件B使用 */}
+                &lt;B qiming={this.hanshu}/&gt;
+            &lt;/Fragment&gt;    
+        )
+    }
+}
+</code></pre><p>并在<code>B</code>中接收：</p>
+<pre><code>shijian() {
+        // 我们此时在子组件里调用父组件给传递过来的函数
+        this.props.qiming(&apos;这个是子组件传的&apos;)
+}
+</code></pre><p>此时我们就可以console出这个参数了，当我们找到这个参数后，我们就可以相应的对其状态进行使用如：  </p>
+<pre><code>class App extends Component {
+    constructor(props) {
+        super(props)
+        this.hanshu =this.hanshu.bind(this)
+    }
+    // 定义一个函数
+    hanshu(aaa) {
+        //console.log(aaa);
+        // 改变状态
+        this.setState({
+            zhuangtai:aaa
+        })
+    }
+    render() {
+        return (
+            &lt;Fragment&gt;
+                {/* 我们可以随便起名字，将此函数给子组件B使用 */}
+                &lt;B qiming={this.hanshu} zhuangtai={this.state.zhuangtai}/&gt;
+            &lt;/Fragment&gt;    
+        )
+    }
+} 
+</code></pre><p>如果我们想让<code>B</code>的<code>state</code>等于<code>props</code>时：</p>
+<pre><code>constructor(props) {
+    super(props)
+    //如果我们想让B的state等于props时：
+    this.state = {
+        a: this.props.qiming,
+        b: this.props.a
+    }
+    this.shijian =this.shijian.bind(this)
+} 
+</code></pre><p>此时我们就实现了父子之间的传值和状态提升，接下来我们将进行<code>redux</code>的练习</p>
+<p>#react-redux</p>
+
     </div>
 </article>
+
+
+<div id="comments-template"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script>
+	if(!window.commentConfig) {
+      window.commentConfig = {}
+      window.commentConfig.title = '实现react中的状态提升与react-redux'
+    }
+</script>
+
                 </div>
                 <aside class="col-md-4 gal-left" id="sidebar">
     <!-- 此为sidebar的搜索框, 非搜索结果页面 -->
@@ -405,19 +543,19 @@
         <div class="panel panel-gal hidden-xs" data-aos="fade-up" data-aos-duration="2000">
             <ul class="nav nav-pills pills-gal">
                 <li class="">
-                    <a href="/categories/hexo/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                    <a href="/2018/03/16/实现react中的状态提升与react-redux/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
                 </li>
                 <li class="">
-                    <a href="/categories/hexo/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
+                    <a href="/2018/03/16/实现react中的状态提升与react-redux/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
                 </li>
                 <li class="">
-                    <a href="/categories/hexo/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                    <a href="/2018/03/16/实现react中的状态提升与react-redux/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
                 </li>
             </ul>
             <div class="tab-content">
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/tags/first/" style="font-size: 15.390571787469447px;" class="tag-cloud-link">first</a>
+    <a href="/tags/first/" style="font-size: 9.006904337662526px;" class="tag-cloud-link">first</a>
     
 </div>
                 <div class="friend-links tab-pane nav bs-sidenav fade" id="sidebar-friend-links">
